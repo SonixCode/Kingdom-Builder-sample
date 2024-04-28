@@ -56,7 +56,7 @@ public class HelloController extends Application {
                 hexagons[i][j] = hexagon;
                 hexagon.setOnMouseClicked(event -> {
                     if (event.getButton() == MouseButton.PRIMARY) {
-                        hexagon.setFill(Color.AZURE);
+                        hexagon.setFill(Color.RED);
                     } else if (event.getButton() == MouseButton.SECONDARY) {
                         hexagon.setFill(Color.WHEAT);
                     }
@@ -232,12 +232,29 @@ public class HelloController extends Application {
 
         Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Icon.jpg")));
         primaryStage.getIcons().add(icon);
+    //---------------------------------------------------- //Add game Avatar
+        Image Player1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Player1_Avatar.png")));
+        ImageView Player1Views = new ImageView(Player1);
+        Player1Views.setFitHeight(280);
+        Player1Views.setFitWidth(210);
+        Player1Views.setX(1040);
+        Player1Views.setY(550);
+        root.getChildren().add(Player1Views);
+
+        Image Player2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("Player2_Avatar.png")));
+        ImageView Player2Views = new ImageView(Player2);
+        Player2Views.setFitHeight(280);
+        Player2Views.setFitWidth(210);
+        Player2Views.setX(1040+250);
+        Player2Views.setY(550);
+        root.getChildren().add(Player2Views);
 
         Scene scene = new Scene(root, 600, 600);
         primaryStage.setTitle("Hexagonal Board");
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
         primaryStage.show();
+
     }
 
     private Polygon createHexagon(double centerX, double centerY, double size) {// Form the hexa
